@@ -19,7 +19,7 @@ export const InputComponent = styled.TextInput<Props>`
   border-radius: 6px;
   padding: 16px;
   width: 85%;
-  border: 1px solid ${({variant, theme})=> variant && theme.COLORS.PURPLE_200}
+  border: 1px solid ${({variant, theme})=> variant ? theme.COLORS.PURPLE_200 : theme.COLORS.GRAY_500}
 `
 
 export const Button = styled.TouchableOpacity`
