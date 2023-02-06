@@ -10,10 +10,12 @@ import { Alert } from "react-native";
 
 
 export function Input(){
-    const [title, setTitle] = useState('')
+    const [title, setTitle] = useState('');
+    const [focus, setFocus] = useState(false);
+
+    const {tasks, handleAddNewTask } = useContext(TodoContext);
     const { COLORS } = useTheme();
 
-    const {tasks, handleAddNewTask } = useContext(TodoContext)
 
     function handleButtonPlus(title: string){
         if(title.trim().length === 0) {
@@ -39,6 +41,9 @@ export function Input(){
             value={title}
             returnKeyType="done"
             onSubmitEditing={() => handleButtonPlus(title)}
+            onFocus={()=> setFocus(true)}
+            onBlur={()=> setFocus(false)}
+            variant={focus}
             />
 
             <Button onPress={() => handleButtonPlus(title)}>

@@ -9,14 +9,17 @@ border-radius: 8px;
 width: 100%;
 margin-top: -45px;
 `
-
-export const InputComponent = styled.TextInput`
+type Props ={
+  variant: boolean
+}
+export const InputComponent = styled.TextInput<Props>`
   color: ${({theme})=> theme.COLORS.GRAY_100};
   background-color: ${({theme})=> theme.COLORS.GRAY_500};
   font-size: ${({theme})=> theme.FONT_SIZE.LG}px;
   border-radius: 6px;
   padding: 16px;
   width: 85%;
+  border: 1px solid ${({variant, theme})=> variant && theme.COLORS.PURPLE_200}
 `
 
 export const Button = styled.TouchableOpacity`
